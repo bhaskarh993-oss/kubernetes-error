@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: targetport-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: targetport-demo
+  template:
+    metadata:
+      labels:
+        app: targetport-demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: targetport-demo
+spec:
+  selector:
+    app: targetport-demo
+  ports:
+  - port: 80
+    targetPort: 8080

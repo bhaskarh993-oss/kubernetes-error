@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: connection-refused-demo
+  labels:
+    app: connection-refused
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.31

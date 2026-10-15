@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ecr-auth-demo
+spec:
+  imagePullSecrets:
+    - name: ecr-secret
+  containers:
+    - name: app
+      image: 621662900911.dkr.ecr.ap-south-1.amazonaws.com/java-app:17
+      imagePullPolicy: Always
